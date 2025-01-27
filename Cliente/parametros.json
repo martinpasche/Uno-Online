@@ -1,0 +1,12 @@
+{
+    "host" : "",
+    "port" : 25666,
+    "path_ventana_espera" : "ventana_espera.ui",
+    "path_ventana_inicio" : "ventana_inicio.ui",
+    "path_ventana_partida" : "ventana_partida.ui",
+    "path_dialog_conexion_perdida" : "dialog_conexion_perdida.ui",
+    "path_dialog_cambio_color" : "dialog_cambio_color.ui",
+    "path_dialog_avisar_color" : "dialog_avisar_color.ui",
+    "dccuatro" : 4,
+    "cartas_maximo" : 10
+}

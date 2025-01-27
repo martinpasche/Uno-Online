@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dialog_cambio_color</class>
+ <widget class="QDialog" name="dialog_cambio_color">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>307</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cambio Color</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>sprites/Logo_1.png</normaloff>sprites/Logo_1.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog#dialog_cambio_color{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(66, 66, 66, 255));
+
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="l_texto">
+       <property name="styleSheet">
+        <string notr="true">QLabel#l_texto{
+	color : rgb(197, 197, 197);
+	
+	font: 75 11pt &quot;Comic Sans MS&quot;;
+	font-weight : Bold;
+
+}</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;HAZ JUGADO UNA CARTA CAMBIO DE COLOR&lt;/p&gt;&lt;p&gt;SELECCIONA UN COLOR PARA SEGUIR JUGANDO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pb_azul">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#pb_azul{	
+
+	font: 75 11pt &quot;Comic Sans MS&quot;;
+	font-weight : Bold;
+	
+	
+	color:  rgb(255, 255, 255);
+	
+	background-color:   rgb(0, 255, 255);
+
+}</string>
+         </property>
+         <property name="text">
+          <string>AZUL</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="pb_rojo">
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#pb_rojo{
+	font: 75 11pt &quot;Comic Sans MS&quot;;
+	font-weight : Bold;
+	
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(255, 0, 0);
+
+}</string>
+         </property>
+         <property name="text">
+          <string>ROJO</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pb_verde">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#pb_verde{	
+
+	font: 75 11pt &quot;Comic Sans MS&quot;;
+	font-weight : Bold;
+	
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(0, 255, 0);
+
+}</string>
+         </property>
+         <property name="text">
+          <string>VERDE</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="pb_amarillo">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#pb_amarillo{	
+
+	font: 75 11pt &quot;Comic Sans MS&quot;;
+	font-weight : Bold;
+	
+	color: rgb(255, 255, 255);
+	
+	
+	background-color: rgb(255, 255, 0);
+
+}</string>
+         </property>
+         <property name="text">
+          <string>AMARILLO</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pb_rojo</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog_cambio_color</receiver>
+   <slot>color_rojo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>274</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_verde</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog_cambio_color</receiver>
+   <slot>color_verde()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>274</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_amarillo</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog_cambio_color</receiver>
+   <slot>color_amarillo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>274</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_azul</sender>
+   <signal>clicked()</signal>
+   <receiver>dialog_cambio_color</receiver>
+   <slot>color_azul()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>274</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>color_rojo()</slot>
+  <slot>color_verde()</slot>
+  <slot>color_amarillo()</slot>
+  <slot>color_azul()</slot>
+ </slots>
+</ui>

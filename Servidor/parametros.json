@@ -1,0 +1,9 @@
+{
+    "port" : 25666,
+    "dccuatro" : 4,
+    "cartas_maximo" : 10,
+    "cantidad_jugadores" : 2,
+    "cartas_iniciales" : 5,
+    "path_cartas" : "sprites,simple",
+    "path_reverso_carta" : "sprites,simple,reverso.png"
+}
