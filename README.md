@@ -1,106 +1,108 @@
-# Tarea 03: DDCuatro
+# Task 03: DDCuatro
 
-## Consideraciones generales
+## General Considerations
 
-* Corrector, lamento mucho no haber subido el ```README``` antes. Me centré en mis otros exámenes y se me fue completamente de la cabeza. Espero que lo pueda ver aunque lo haya entregado SUPER tarde (para que le facilite la correción).
-* La tarea se puede correr y jugar competamente, con alguno que otro bug que pueda aparecer por cerrar ventanas o que haya terminado la partida.
-* En el cliente, este solo recibe la informacion del servidor y la muestra en la interfaz. Luego, lo que le manda el usuario, se lo manda al servidor para que procese la informacion.
-* El servidor es el encargado de procesar toda la informacion y la lógica del juego se encuentra en el modulo back-end.
-* Dato importante: modifique el nombre de la carta ```color.png``` -> ```color_.png```, ya que facilita mucho la implementación del codigo.
-* Los dos grandes errores en mi código, es el mal uso de los parametros (implementé los que se pedian en el enunciado, pero los demás no los agregue en el archivo json) y que en algunos archivos me pase en lineas.
-  
+* Reviewer, I deeply apologize for not uploading the `README` earlier. I focused on my other exams and completely forgot about it. I hope you can review it even though it's SUPER late (to make your correction process easier).
+* The task can run and be played completely, although some bugs may occur when closing windows or after the game ends.
+* On the client side, it only receives information from the server and displays it on the interface. Then, whatever the user sends is forwarded to the server for processing.
+* The server handles all the information processing, and the game logic is located in the back-end module.
+* Important note: I renamed the `color.png` card to `color_.png` to make the code implementation easier.
+* The two major issues in my code are poor parameter usage (I implemented the required parameters from the instructions but didn't add others to the JSON file) and exceeding the line limit in some files.
 
-### Cosas implementadas y no implementadas
+### Implemented and Unimplemented Features
 
 * Networking:
-    * Manejo de sockets: Hecho
-    * Conexion: Hecho
-    * Manejo de clientes: Fue lo ultimo que implete en el programa y no estoy 100% seguro si el codigo puede resistir a que se desconecten usuarios en partida (no realice ningun control cuando un jugador se sale cuando tiene que escoger color)
-* Arquitectura Cliente-Servidor:
-    * Roles: Hecho
-    * Consistencia: Hecho
-    * Logs: Hecho
-* Manejo de Bytes:
-    * Codificación Cartas: Hecho
-    * Decodificación Cartas: Hecho
-    * Integración: Hecho
-* Interfaz Gráfica:
-    * Modelación: Hecho
-    * General: Hecho
-    * Ventana de inicio: Hecho
-    * Sala de espera: Hecho
-    * Sala de juego: Hecho en su mayoria. Puede que haya un error al cerrar la ventana (creo que se abre la sala de espera y el modo espectador según yo funciona)
-    * Fin de la partida: Faltó hacer el reinicio de la partida.
-* Reglas del DCCuatro:
-    * Repartir cartas: Hecho
-    * Jugar una carta: Hecho
-    * Robar una carta: Hecho
-    * Gritar ¡DCCuatro!: Hecho
-    * Termino del juego: Hecho
+  * Socket management: Done
+  * Connection: Done
+  * Client management: This was the last part of the program I implemented, and I'm not 100% sure the code can handle users disconnecting during a game (I didn't implement any control for when a player leaves while choosing a color).
+
+* Client-Server Architecture:
+  * Roles: Done
+  * Consistency: Done
+  * Logs: Done
+
+* Byte Handling:
+  * Card Encoding: Done
+  * Card Decoding: Done
+  * Integration: Done
+
+* Graphical Interface:
+  * Modeling: Done
+  * General: Done
+  * Start Window: Done
+  * Waiting Room: Done
+  * Game Room: Mostly done. There may be an error when closing the window (I believe the waiting room opens, and spectator mode works as far as I know).
+  * Game End: Restarting the game was not implemented.
+
+* DCCuatro Rules:
+  * Dealing Cards: Done
+  * Playing a Card: Done
+  * Drawing a Card: Done
+  * Shouting "DCCuatro!": Done
+  * Game End: Done
+
 * General:
-    * Parámetros: No guarde ningun otro parametro aparte de los pedidos en el enunciado (tengo que mejorar esto)
-    * Generador de Mazos: Hecho
+  * Parameters: I didn't save any parameters other than those required by the instructions (I need to improve this).
+  * Deck Generator: Done
+
 * Bonus:
-    * Chat: Implementado completamente
+  * Chat: Fully implemented.
 
-## Ejecución
+## Execution
 
-En la carpeta ```servidor```, el archivo ```main.py``` corre el servidor del programa, el cual debe tener los siguientes archivos para funcionar:
+In the `server` folder, the `main.py` file runs the server for the program. The following files are needed for it to function:
 
-1. ```sprites``` en ```servidor```. Dentro de esta carpeta, en la subcarpeta ```simples``` modifique el nombre de la carta color de ```color.png``` a ```color_.png```.
-2. ```generador_de_mazos.py``` en ```servidor```
-3. ```servidor.py``` en ```servidor```
-4. ```back_end.py``` en ```servidor```
-5. ```funciones_ext.py``` en ```servidor```
-6. ```parametros.json``` en ```servidor```
+1. `sprites` in `server`. Inside this folder, in the `simples` subfolder, the card `color.png` was renamed to `color_.png`.
+2. `generador_de_mazos.py` in `server`
+3. `servidor.py` in `server`
+4. `back_end.py` in `server`
+5. `funciones_ext.py` in `server`
+6. `parametros.json` in `server`
 
-En la carpeta ```Cliente```, el archivo ```main.py``` corre el cliente del programa, el cual contiene:
+In the `client` folder, the `main.py` file runs the program's client. It includes:
 
-1. Todos los archivos provenientes de Designer con extension ```.ui``` que son utilizados para cargar los widgets del juego. Estos son: ```dialog_avisar_color.ui```, ```dialog_cambio_color.ui```, ```dialog_conexion_perdida.ui```, ```ventana_espera.ui```, ```ventana_inicio.ui``` y ```ventana_partida.ui```, en ```Cliente```
-2. ```conexion_servidor.py``` en ```Cliente```
-3. ```lector_parametros.py``` en ```Cliente```
-4. ```interfaz.py``` en ```Cliente```
-5. ```parametros.json``` en ```Cliente```
-6. ```sprites``` en ```Cliente``` con las imagenes de los logos, la carta reverso y una carta azul del numero 0, para poder partir el programa, ya que los archivos ```.ui``` buscaran estas imagenes en esta carpeta (el resto de las cartas de la partida se las envia el servidor).
+1. All files from Designer with the `.ui` extension, which are used to load game widgets. These are: `dialog_avisar_color.ui`, `dialog_cambio_color.ui`, `dialog_conexion_perdida.ui`, `ventana_espera.ui`, `ventana_inicio.ui`, and `ventana_partida.ui` in `client`.
+2. `conexion_servidor.py` in `client`
+3. `lector_parametros.py` in `client`
+4. `interfaz.py` in `client`
+5. `parametros.json` in `client`
+6. `sprites` in `client` with images for logos, the card back, and a blue card with the number 0. These are needed to start the program, as the `.ui` files look for these images in this folder (the rest of the game cards are sent by the server).
 
+## Libraries
 
+### External Libraries Used
+The external libraries I used are:
 
-## Librerías
-### Librerías externas utilizadas
-La lista de librerías externas que utilicé fue la siguiente:
+1. `sys`: `__excepthook__`, `exit()`
+2. `socket`: `gethostname()`, `socket()`, `AF_INET`, `SOCK_STREAM`
+3. `os`: `path`
+4. `json`: `loads()`, `dumps()`, `load()`
+5. `threading`: `Lock()`, `Event()`, `Thread`
+6. `time`: `sleep()`
+7. `random`: `shuffle()`
+8. `collections`: `namedtuple`
+9. `PyQt5`: `uic`,  
+               : `QtWidgets`: `QLayoutItem`, `QLabel`, `QApplication`,   
+               : `QtGui`: `QPixmap`, `QTextCursor`, `QImage`, `QTransform`,  
+               : `QtCore`: `pyqtSignal`, `Qt`, `QRect`, `QObject` 
 
-1. ```sys```: ```__excepthook__``` ```exit()```
-2. ```socket```: ```gethostname()``` ```socket()``` ```AF_INET``` ```SOCK_STREAM```
-3. ```os``` : ```path```
-4. ```json```: ```loads()``` ```dumps()``` ```load()```
-5. ```threading```: ```Lock()``` ```Event()``` ```Thread```
-6. ```time```: ```sleep()```
-7. ```random```: ```shuffle()```
-8. ```collections```: ```namedtuple```
-9. ```PyQt5``` : ```uic```,  
-               : ```QtWidgets``` : ```QLayoutItem``` ```QLabel``` ```QApplication```,   
-               : ```QtGui``` : ```QPixmap``` ```QTextCursor``` ```QImage``` ```QTransform```,  
-               :```QtCore``` : ```pyqtSignal``` ```Qt``` ```QRect``` ```QObject``` 
+### Custom Libraries
+The custom modules created are:
 
-### Librerías propias 
-Por otro lado, los módulos que fueron creados fueron los siguientes:
+1. `generador_de_mazos.py`: A file provided for the task.
+2. `servidor.py`: Contains the `Servidor` class, which manages client connections.
+3. `back_end.py`: Contains the `DCCuatro` class.
+4. `funciones_ext.py`: Contains complementary functions for the classes.
+5. `parametros.json`: Contains the parameters required by the instructions.
+6. All files from Designer with the `.ui` extension, which are used to load game widgets. These are: `dialog_avisar_color.ui`, `dialog_cambio_color.ui`, `dialog_conexion_perdida.ui`, `ventana_espera.ui`, `ventana_inicio.ui`, and `ventana_partida.ui`.
+7. `conexion_servidor.py`: Contains the `Cliente` class, which handles communication with the server and interface.
+8. `lector_parametros.py`: A module with useful functions for the classes.
+9. `interfaz.py`: Contains the classes for the game's windows.
 
-1. ```generador_de_mazos.py``` que es un archivo entregado para la tarea
-2. ```servidor.py``` que contiene la clase ```Servidor``` que se dedica a conectarse con los clientes
-3. ```back_end.py``` que contiene la clase ```DCCuatro```
-4. ```funciones_ext.py``` que contiene algunas funciones complementarias a las clases
-5. ```parametros.json``` es el archivo que contiene los parametros requeridos en el enunciado
-6. Todos los archivos provenientes de Designer con extension ```.ui``` que son utilizados para cargar los widgets del juego. Estos son: ```dialog_avisar_color.ui```, ```dialog_cambio_color.ui```, ```dialog_conexion_perdida.ui```, ```ventana_espera.ui```, ```ventana_inicio.ui``` y ```ventana_partida.ui```
-7. ```conexion_servidor.py``` que contiene la clase ```Cliente``` que es la que se dedica a la comunicacion con el servidor y la interfaz.
-8. ```lector_parametros.py``` es modulo con funciones utiles para las clases
-9. ```interfaz.py``` que tiene las clases de las ventanas del juego.
+## Assumptions and Additional Considerations
 
-## Supuestos y consideraciones adicionales
-
-Hay un codigo que copie de stackoverflow y le hice pequeñas variaciones, se encuentra en el modulo ```interfaz``` de la carpeta ```Cliente``` que proviene del siguiente link:
+There is code I copied from Stack Overflow and made small changes to. It is located in the `interfaz` module in the `client` folder and comes from the following link:
 
 https://stackoverflow.com/a/10067548
 
-Que sirve para eliminar los labels de un layout. (e.j. cuando se quiere actualizar el mazo del usuario)
-
-## Muchas Gracias por Corregir mi Tarea, espero que te haya servido el ```README``` y suerte en tus examenes!!
+This code is used to delete labels from a layout (e.g., when updating the user's deck).
