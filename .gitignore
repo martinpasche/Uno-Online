@@ -35,5 +35,3 @@ __pycache__/
 #archivos con los datos
 *.csv
 *.pdf
-sprites/
-generador_de_mazos.py
